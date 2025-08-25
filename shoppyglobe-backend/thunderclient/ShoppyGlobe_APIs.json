@@ -1,0 +1,150 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "ShoppyGlobe APIs",
+  "dateExported": "2025-08-15",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "name": "Register",
+      "url": "http://localhost:5000/auth/register",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": {
+          "name": "Test User",
+          "email": "test@example.com",
+          "password": "secret123"
+        }
+      },
+      "tests": []
+    },
+    {
+      "name": "Login",
+      "url": "http://localhost:5000/auth/login",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": {
+          "email": "test@example.com",
+          "password": "secret123"
+        }
+      },
+      "tests": []
+    },
+    {
+      "name": "Get Products",
+      "url": "http://localhost:5000/products",
+      "method": "GET",
+      "headers": [],
+      "tests": []
+    },
+    {
+      "name": "Get Product by ID",
+      "url": "http://localhost:5000/products/{{productId}}",
+      "method": "GET",
+      "headers": [],
+      "tests": []
+    },
+    {
+      "name": "Get My Cart",
+      "url": "http://localhost:5000/cart",
+      "method": "GET",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "tests": []
+    },
+    {
+      "name": "Add To Cart",
+      "url": "http://localhost:5000/cart",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": {
+          "productId": "{{productId}}",
+          "quantity": 1
+        }
+      },
+      "tests": []
+    },
+    {
+      "name": "Update Cart Item",
+      "url": "http://localhost:5000/cart/{{cartItemId}}",
+      "method": "PUT",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": {
+          "quantity": 2
+        }
+      },
+      "tests": []
+    },
+    {
+      "name": "Delete Cart Item",
+      "url": "http://localhost:5000/cart/{{cartItemId}}",
+      "method": "DELETE",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "tests": []
+    }
+  ],
+  "env": [
+    {
+      "name": "local",
+      "data": [
+        {
+          "name": "token",
+          "value": ""
+        },
+        {
+          "name": "productId",
+          "value": ""
+        },
+        {
+          "name": "cartItemId",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
